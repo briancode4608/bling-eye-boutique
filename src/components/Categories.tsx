@@ -1,12 +1,14 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 interface Category {
   id: number;
   name: string;
   image: string;
   count: number;
+  slug: string;
 }
 
 const categories: Category[] = [
@@ -15,18 +17,21 @@ const categories: Category[] = [
     name: "Rings",
     image: "https://images.unsplash.com/photo-1574740637579-73f1ff3f8ff1?auto=format&fit=crop&w=800&q=80",
     count: 42,
+    slug: "rings"
   },
   {
     id: 2,
     name: "Necklaces",
     image: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=800&q=80",
     count: 36,
+    slug: "necklaces"
   },
   {
     id: 3,
     name: "Bracelets",
     image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=80",
     count: 28,
+    slug: "bracelets"
   },
 ];
 
@@ -58,8 +63,8 @@ const Categories = () => {
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
                 <h3 className="text-3xl font-bold text-white mb-2">{category.name}</h3>
                 <p className="text-gold mb-6">{category.count} Products</p>
-                <Button className="gold-button rounded-none uppercase tracking-wider">
-                  Explore
+                <Button className="gold-button rounded-none uppercase tracking-wider" asChild>
+                  <Link to={`/category/${category.slug}`}>Explore</Link>
                 </Button>
               </div>
             </div>

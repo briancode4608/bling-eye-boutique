@@ -2,9 +2,10 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface Product {
-  id: number;
+  id: string;
   name: string;
   description: string;
   price: number;
@@ -14,7 +15,7 @@ interface Product {
 
 const featuredProducts: Product[] = [
   {
-    id: 1,
+    id: "diamond-eternity",
     name: "Diamond Eternity Ring",
     description: "Handcrafted 18K gold ring with premium diamonds",
     price: 2499,
@@ -22,7 +23,7 @@ const featuredProducts: Product[] = [
     category: "Rings",
   },
   {
-    id: 2,
+    id: "pearl-elegance",
     name: "Pearl Elegance Necklace",
     description: "Timeless design with genuine white pearls",
     price: 1899,
@@ -30,7 +31,7 @@ const featuredProducts: Product[] = [
     category: "Necklaces",
   },
   {
-    id: 3,
+    id: "sapphire-drop",
     name: "Sapphire Drop Earrings",
     description: "Statement earrings with brilliant blue sapphires",
     price: 1599,
@@ -38,7 +39,7 @@ const featuredProducts: Product[] = [
     category: "Earrings",
   },
   {
-    id: 4,
+    id: "royal-gold",
     name: "Royal Gold Bracelet",
     description: "Intricately designed solid gold bracelet",
     price: 3299,
@@ -73,8 +74,9 @@ const ProductCard = ({ product }: { product: Product }) => {
           <Button
             variant="outline"
             className="bg-transparent hover:bg-gold hover:text-black border-gold text-gold rounded-none h-8 px-3 transition-colors duration-300"
+            asChild
           >
-            View Details
+            <Link to={`/product/${product.id}`}>View Details</Link>
           </Button>
         </div>
       </div>
