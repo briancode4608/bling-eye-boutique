@@ -94,12 +94,18 @@
   
   .hover-shine::after {
     content: '';
-    @apply absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent to-white/20 transform skew(-15deg);
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2));
+    transform: skewX(-15deg);
     transition: all 0.75s ease;
   }
   
   .hover-shine:hover::after {
-    @apply left-[150%];
+    left: 150%;
   }
   
   .gold-border {
